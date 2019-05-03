@@ -40,7 +40,7 @@ security_package_state: present
 # Set the following variable to `no` to prevent the EPEL repository from being
 # installed by the role. This may prevent certain packages from installing,
 # such as ClamAV.
-security_epel_install_repository: yes
+security_epel_install_repository: no
 #
 # Some deployers install a customized EPEL package that redirects servers to
 # their internal EPEL mirrors. Provide the name of the EPEL repository package
@@ -162,7 +162,7 @@ security_disallow_blank_password_login: yes                  # V-71937
 # NOTE: The security_pwquality_apply_rules variable is a "master switch".
 # Set the 'security_pwquality_apply_rules' variable to 'yes' to apply all of
 # the password quality rules. Each rule can be disabled with a value of 'no'.
-security_pwquality_apply_rules: no
+security_pwquality_apply_rules: yes
 security_pwquality_require_uppercase: yes                    # V-71903
 security_pwquality_require_lowercase: yes                    # V-71905
 security_pwquality_require_numeric: yes                      # V-71907
@@ -173,7 +173,7 @@ security_pwquality_limit_repeated_characters: yes            # V-71915
 security_pwquality_limit_repeated_character_classes: yes     # V-71917
 security_pwquality_require_minimum_password_length: no       # V-71935
 # Use pwquality when passwords are changed or established.
-security_enable_pwquality_password_set: no                   # V-73159
+security_enable_pwquality_password_set: yes                   # V-73159
 # Ensure passwords are stored using SHA512.
 security_password_encrypt_method: SHA512                     # V-71921
 # Ensure user/group admin utilities only store encrypted passwords.
@@ -305,7 +305,7 @@ security_rhel7_remove_ypserv: yes                            # V-71969
 # Automatically remove dependencies when removing packages.
 security_package_clean_on_remove: no                         # V-71987
 # Automatically update packages.
-security_rhel7_automatic_package_updates: no                 # V-71999
+security_rhel7_automatic_package_updates: yes                 # V-71999
 # Install packages for multi-factor authentication.
 security_install_multifactor_auth_packages: yes              # V-72417
 security_check_package_checksums: no                         # V-71855
@@ -341,13 +341,13 @@ security_sshd_disallow_known_hosts_auth: yes                 # V-72249 / V-72239
 # Disallow rhosts authentication.
 security_sshd_disallow_rhosts_auth: yes                      # V-72243
 # Enable X11 forwarding.
-security_sshd_enable_x11_forwarding: yes                     # V-72303
+security_sshd_enable_x11_forwarding: no                     # V-72303
 # Set the allowed ssh protocols.
 security_sshd_protocol: 2                                    # V-72251
 # Set the list of allowed Message Authentication Codes (MACs) for ssh.
 security_sshd_allowed_macs: 'hmac-sha2-256,hmac-sha2-512'    # V-72253
 # Disallow Generic Security Service Application Program Interface (GSSAPI) auth.
-security_sshd_disallow_gssapi: yes                           # V-72259
+security_sshd_disallow_gssapi: no                           # V-72259
 # Disallow compression or delay after login.
 security_sshd_compression: 'delayed'                         # V-72267
 # Require privilege separation at every opportunity.
@@ -355,7 +355,7 @@ security_sshd_enable_privilege_separation: yes               # V-72265
 # Require strict mode checking of home directory configuration files.
 security_sshd_enable_strict_modes: yes                       # V-72263
 # Disallow Kerberos authentication.
-security_sshd_disable_kerberos_auth: yes                     # V-72261
+security_sshd_disable_kerberos_auth: no                     # V-72261
 
 ## Kernel settings (kernel)
 # Disallow forwarding IPv4/IPv6 source routed packets on all interfaces
